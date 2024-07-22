@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Ejercicio 1{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Ejercicio 1</h1>
+    <form method="post">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="age">Edad:</label>
+        <input type="number" id="age" name="age" required><br>
+        <label for="cans">Cantidad de tarros de pintura:</label>
+        <input type="number" id="cans" name="cans" required><br>
+        <button type="submit">Calcular</button>
+    </form>
+    {% if result %}
+    <h2>Resultado</h2>
+    <p>Nombre: {{ result.name }}</p>
+    <p>Total sin descuento: ${{ result.total }}</p>
+    <p>Descuento aplicado: ${{ result.discount }}</p>
+    <p>Total con descuento: ${{ result.total_discounted }}</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}"><button>Volver a la pantalla principal</button></a>
+</div>
+{% endblock %}
